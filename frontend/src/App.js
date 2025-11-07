@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './App.css';
-import TaskList from './components/TaskList';
-import TaskForm from './components/TaskForm';
-import UserList from './components/UserList';
-import api from './services/api';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
+import TaskList from "./components/TaskList";
+import TaskForm from "./components/TaskForm";
+import UserList from "./components/UserList";
+import api from "./services/api";
 
 function App() {
   const [apiStatus, setApiStatus] = useState(null);
@@ -16,12 +16,12 @@ function App() {
 
   const checkApiStatus = async () => {
     try {
-      const response = await api.get('/status');
+      const response = await api.get("/status");
       setApiStatus(response.data);
       setLoading(false);
     } catch (error) {
-      console.error('API connection error:', error);
-      setApiStatus({ success: false, message: 'API connection failed' });
+      console.error("API connection error:", error);
+      setApiStatus({ success: false, message: "API connection failed" });
       setLoading(false);
     }
   };
@@ -62,8 +62,8 @@ function App() {
         <footer className="App-footer">
           <p>© 2024 MERN Stack Application | Deployed with ❤️</p>
           <p className="env-info">
-            Environment: {process.env.REACT_APP_ENV || 'development'} | 
-            API: {process.env.REACT_APP_API_URL || 'http://localhost:5000/api'}
+            Environment: {process.env.REACT_APP_ENV || "development"} | API:{" "}
+            {process.env.REACT_APP_API_URL || "http://localhost:5000/api"}
           </p>
         </footer>
       </div>
