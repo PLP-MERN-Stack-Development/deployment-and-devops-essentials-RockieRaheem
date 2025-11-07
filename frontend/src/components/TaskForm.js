@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import api from '../services/api';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../services/api";
 
 function TaskForm() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    status: 'pending',
-    priority: 'medium',
-    dueDate: ''
+    title: "",
+    description: "",
+    status: "pending",
+    priority: "medium",
+    dueDate: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -18,7 +18,7 @@ function TaskForm() {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -28,13 +28,13 @@ function TaskForm() {
     setError(null);
 
     try {
-      await api.post('/tasks', formData);
+      await api.post("/tasks", formData);
       setSuccess(true);
       setTimeout(() => {
-        navigate('/tasks');
+        navigate("/tasks");
       }, 1500);
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to create task');
+      setError(err.response?.data?.message || "Failed to create task");
       console.error(err);
     } finally {
       setLoading(false);
@@ -44,9 +44,13 @@ function TaskForm() {
   return (
     <div className="container">
       <h2>➕ Create New Task</h2>
-      
+
       {error && <div className="error">{error}</div>}
-      {success && <div className="success">✅ Task created successfully! Redirecting...</div>}
+      {success && (
+        <div className="success">
+          ✅ Task created successfully! Redirecting...
+        </div>
+      )}
 
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -116,7 +120,7 @@ function TaskForm() {
         </div>
 
         <button type="submit" className="btn btn-primary" disabled={loading}>
-          {loading ? 'Creating...' : 'Create Task'}
+          {loading ? "Creating..." : "Create Task"}
         </button>
       </form>
     </div>
