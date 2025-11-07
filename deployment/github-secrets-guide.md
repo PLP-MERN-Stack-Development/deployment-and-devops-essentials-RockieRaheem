@@ -14,6 +14,7 @@ This document lists all the secrets you need to configure in your GitHub reposit
 ### Backend Deployment (Render)
 
 #### `RENDER_API_KEY`
+
 - **Description:** Your Render API key for deployments
 - **How to get:**
   1. Log in to Render.com
@@ -23,6 +24,7 @@ This document lists all the secrets you need to configure in your GitHub reposit
 - **Example:** `rnd_xxxxxxxxxxxxxxxxxxxxx`
 
 #### `RENDER_SERVICE_ID`
+
 - **Description:** Your backend service ID on Render
 - **How to get:**
   1. Go to your backend service on Render
@@ -30,12 +32,14 @@ This document lists all the secrets you need to configure in your GitHub reposit
 - **Example:** `srv-xxxxxxxxxxxxxxxxxxxxx`
 
 #### `BACKEND_URL`
+
 - **Description:** Your deployed backend URL
 - **Example:** `https://your-backend-service.onrender.com`
 
 ### Frontend Deployment (Vercel)
 
 #### `VERCEL_TOKEN`
+
 - **Description:** Vercel authentication token
 - **How to get:**
   1. Log in to Vercel
@@ -44,6 +48,7 @@ This document lists all the secrets you need to configure in your GitHub reposit
 - **Example:** `xxxxxxxxxxxxxxxxxxxxxxxxxx`
 
 #### `VERCEL_ORG_ID`
+
 - **Description:** Your Vercel organization/team ID
 - **How to get:**
   1. Go to Vercel Settings
@@ -51,6 +56,7 @@ This document lists all the secrets you need to configure in your GitHub reposit
 - **Example:** `team_xxxxxxxxxxxxxxxxxxxxx`
 
 #### `VERCEL_PROJECT_ID`
+
 - **Description:** Your frontend project ID on Vercel
 - **How to get:**
   1. Go to your project settings on Vercel
@@ -58,16 +64,19 @@ This document lists all the secrets you need to configure in your GitHub reposit
 - **Example:** `prj_xxxxxxxxxxxxxxxxxxxxx`
 
 #### `FRONTEND_URL`
+
 - **Description:** Your deployed frontend URL
 - **Example:** `https://your-app.vercel.app`
 
 ### Application Configuration
 
 #### `REACT_APP_API_URL`
+
 - **Description:** Backend API URL for frontend to connect
 - **Example:** `https://your-backend-service.onrender.com/api`
 
 #### `MONGODB_URI_TEST`
+
 - **Description:** MongoDB connection string for testing (optional)
 - **How to get:**
   1. Create a separate test database in MongoDB Atlas
@@ -79,6 +88,7 @@ This document lists all the secrets you need to configure in your GitHub reposit
 ### Error Tracking (Sentry)
 
 #### `SENTRY_DSN`
+
 - **Description:** Sentry Data Source Name for error tracking
 - **How to get:**
   1. Create project on Sentry.io
@@ -88,6 +98,7 @@ This document lists all the secrets you need to configure in your GitHub reposit
 ### Monitoring
 
 #### `UPTIME_ROBOT_API_KEY`
+
 - **Description:** UptimeRobot API key for monitoring (optional)
 - **How to get:**
   1. Sign up at uptimerobot.com
@@ -97,12 +108,15 @@ This document lists all the secrets you need to configure in your GitHub reposit
 ## Environment-Specific Secrets
 
 ### Development
+
 Store in `.env` file locally (NOT committed to Git)
 
 ### Staging
+
 Configure in your staging environment deployment platform
 
 ### Production
+
 Configure in GitHub Secrets (as above) and deployment platforms
 
 ## Security Best Practices
@@ -128,16 +142,19 @@ After adding all secrets, verify:
 ## Troubleshooting
 
 ### "Secret not found" error
+
 - Check secret name spelling (case-sensitive)
 - Verify secret exists in repository settings
 - Check if using organization secrets correctly
 
 ### "Invalid token" error
+
 - Regenerate the token
 - Verify token has correct permissions
 - Check token hasn't expired
 
 ### "Connection refused" error
+
 - Verify URLs are correct and accessible
 - Check if services are running
 - Verify network/firewall settings
